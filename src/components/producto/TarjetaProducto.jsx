@@ -34,7 +34,7 @@ function TarjetaProducto(props) {
                 </div>
             )}
             <h2 className={styles.productName}>{props.nombre}</h2>
-            <p className={styles.details}>Precio: ${props.precio.toFixed(2)}</p>
+            <p className={styles.details}>Precio: ${Number(props.precio).toFixed(2)}</p>
             <p className={styles.details}>Stock: {props.stock}</p>
             <Link to={`/producto/${props.id}`} className={styles.viewDetailsLink}>
                 Detalle del Producto
