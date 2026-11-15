@@ -1,20 +1,37 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 import styles from './DetalleProducto.module.css';
 
 function DetalleProducto() {
 
     const { id } = useParams();
+
     const [producto, setProducto] = useState(null);
 
     useEffect(() => {
-        fetch('/data/productos.json')
+        {/*
+            |fetch('/data/productos.json')
             .then(response => response.json())
             .then(data => {
                 const productoEncontrado = data.find(p => p.id === parseInt(id));
                 setProducto(productoEncontrado);
             })
             .catch(error => console.error("Error al cargar el producto:", error));
+        */}
+        if (id) {
+            const docRef = doc(db, 'productos', id);
+            getDoc(docRef)
+                .then(resp => {
+                    if (resp.exists()) {
+                        setProducto({ id: resp.id, ...resp.data() });
+                    } else {
+                        console.log("Producto no encontrado.");
+                    }
+                })
+                .catch(error => console.error("Error al cargar el producto:", error));
+        }
     }, [id]);
 
     if (!producto) {
