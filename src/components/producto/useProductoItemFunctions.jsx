@@ -4,21 +4,16 @@ import { useCart } from '../../context/CartContext.jsx';
 export function useProductoItemFunctions(nombre, precio, stock, id, image) {
 
     const producto = { id, nombre, precio, stock, image };
-
     const { updateQuantity, getCantidadActual, resetVersion } = useCart();
-
     const cantidadActual = getCantidadActual(id);
-
     const [contador, setContador] = useState(() => Math.min(cantidadActual, stock));
-
     const [mensaje, setMensaje] = useState('');
-
     const favoriteStorageKey = `ecommerce:producto:${id}:favorito`;
     const [versionVista, setVersionVista] = useState(resetVersion);
 
-
     const [esFavorito, setEsFavorito] = useState(() =>
         localStorage.getItem(favoriteStorageKey) === 'true');
+
 
     const marcarComoFavorito = () => {
         const nuevoEstado = !esFavorito;

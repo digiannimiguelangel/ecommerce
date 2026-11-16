@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../firebase/config';
+import { productoService } from '../../service/productoService';
 
 export function useGetProductos() {
 
@@ -13,22 +12,8 @@ export function useGetProductos() {
             const inicio = Date.now();
 
             try {
-                {/*
-                    const respuesta = await fetch('/data/productos.json');
-                    if (!respuesta.ok) {
-                        throw new Error('Error al cargar los productos.');
-                    }
-                    const datos = await respuesta.json();
-                    setProductos(datos);
-                */}
-
-                const productosDB = collection(db, 'productos');
-                const resp = await getDocs(productosDB);
-                setProductos(
-                    resp.docs.map(doc => ({
-                        id: doc.id, ...doc.data()
-                    }))
-                );
+                const productos = await productoService.obtenerProductos();
+                setProductos(productos);
 
             } catch (errorDeCarga) {
                 setError(errorDeCarga);
