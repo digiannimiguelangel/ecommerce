@@ -82,6 +82,42 @@
     border-top: 1px solid #eee7d5;
 }
 
+.itemActions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.quantityButton {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid #218739;
+    border-radius: 6px;
+    background: transparent;
+    color: #218739;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.quantityButton:hover {
+    background: #218739;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.quantityButton:active {
+    transform: scale(0.95);
+}
+
 .removeButton {
     flex-shrink: 0;
     align-self: center;

@@ -64,9 +64,35 @@ export const CartProvider = ({ children }) => {
         return item ? item.quantity : 0;
     };
 
+    const incrementQuantity = (productId) => {
+        setCart((prevCart) => {
+            const itemInCart = prevCart.find((item) => item.id === productId);
+            if (itemInCart) {
+                return prevCart.map((item) =>
+                    item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+                );
+            }
+            return prevCart;
+        });
+    };
+
+    const decrementQuantity = (productId) => {
+        setCart((prevCart) => {
+            const itemInCart = prevCart.find((item) => item.id === productId);
+            if (itemInCart && itemInCart.quantity > 1) {
+                return prevCart.map((item) =>
+                    item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
+                );
+            } else if (itemInCart && itemInCart.quantity === 1) {
+                return prevCart.filter((item) => item.id !== productId);
+            }
+            return prevCart;
+        });
+    };
+
     // Todo lo que esté en "value" queda disponible para los consumers.
     return (
-        <CartContext.Provider value={{ cart, updateQuantity, removeItem, isInCart, clearCart, getCartQuantity, getCartTotal, getCantidadActual, resetVersion }}>
+        <CartContext.Provider value={{ cart, updateQuantity, removeItem, isInCart, clearCart, getCartQuantity, getCartTotal, getCantidadActual, resetVersion, incrementQuantity, decrementQuantity }}>
             {children}
         </CartContext.Provider>
     );

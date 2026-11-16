@@ -5,7 +5,7 @@ import styles from './Cart.module.css';
 
 const Cart = () => {
 
-    const { cart, removeItem, clearCart, getCartTotal } = useCart();
+    const { cart, removeItem, clearCart, getCartTotal, incrementQuantity, decrementQuantity } = useCart();
     const [compraFinalizada, setCompraFinalizada] = useState(false);
 
     const finalizarCompra = () => {
@@ -57,13 +57,29 @@ const Cart = () => {
                             <p>Precio unitario <span>${Number(item.precio).toFixed(2)}</span></p>
                             <p className={styles.subtotal}>Subtotal <span>${(item.quantity * Number(item.precio)).toFixed(2)}</span></p>
                         </div>
-                        <button
-                            className={styles.removeButton}
-                            onClick={() => removeItem(item.id)}
-                            aria-label={`Eliminar ${item.nombre} del carrito`}
-                        >
-                            Eliminar
-                        </button>
+                        <div className={styles.itemActions}>
+                            <button
+                                className={styles.quantityButton}
+                                onClick={() => decrementQuantity(item.id)}
+                                aria-label={`Disminuir cantidad de ${item.nombre}`}
+                            >
+                                −
+                            </button>
+                            <button
+                                className={styles.quantityButton}
+                                onClick={() => incrementQuantity(item.id)}
+                                aria-label={`Aumentar cantidad de ${item.nombre}`}
+                            >
+                                +
+                            </button>
+                            <button
+                                className={styles.removeButton}
+                                onClick={() => removeItem(item.id)}
+                                aria-label={`Eliminar ${item.nombre} del carrito`}
+                            >
+                                Eliminar
+                            </button>
+                        </div>
                     </article>
                 ))}
             </div>
