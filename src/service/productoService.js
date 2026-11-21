@@ -36,10 +36,26 @@ export const productoService = {
     crearProducto: async (productoData) => {
         try {
             const productosDB = collection(db, 'productos');
-            const docRef = await addDoc(productosDB, productoData);
+            const datosFormateados = {
+                nombre: productoData.nombre,
+                precio: parseFloat(productoData.precio),
+                stock: parseInt(productoData.stock, 10),
+                image: productoData.image
+            };
+            
+            // Solo agregar imageDeleteHash si existe y no es undefined
+            if (productoData.imageDeleteHash) {
+                datosFormateados.imageDeleteHash = productoData.imageDeleteHash;
+            }
+            
+            console.log("Datos formateados para guardar:", datosFormateados);
+            
+            const docRef = await addDoc(productosDB, datosFormateados);
+            console.log("Producto creado con ID:", docRef.id);
+            
             return {
                 id: docRef.id,
-                ...productoData
+                ...datosFormateados
             };
         } catch (error) {
             console.error('Error al crear el producto:', error);
