@@ -1,6 +1,6 @@
 import './App.css';
 import Cart from './components/cart/Cart';
-import ProductoListContainer from './components/producto/productoListContainer';
+import ProductoListContainer from './components/producto/ProductoListContainer';
 import { Layout } from './components/layout/Layout';
 import { FormularioContainer } from './components/formulario/FormularioContainer';
 import { Routes, Route } from 'react-router-dom';
