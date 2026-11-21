@@ -1,4 +1,4 @@
-import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 
 export const productoService = {
@@ -29,6 +29,20 @@ export const productoService = {
             }
         } catch (error) {
             console.error("Error al cargar el producto:", error);
+            throw error;
+        }
+    },
+
+    crearProducto: async (productoData) => {
+        try {
+            const productosDB = collection(db, 'productos');
+            const docRef = await addDoc(productosDB, productoData);
+            return {
+                id: docRef.id,
+                ...productoData
+            };
+        } catch (error) {
+            console.error('Error al crear el producto:', error);
             throw error;
         }
     }

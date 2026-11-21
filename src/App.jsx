@@ -8,7 +8,7 @@ import DetalleProducto from './components/producto/DetalleProducto';
 import ContactoListContainer from './components/equipo/ContactoListContainer';
 import styles from './App.module.css';
 import Inicio from './components/inicio/Inicio';
-import Gestion from './components/producto/Gestion';
+import Gestion from './components/gestion/Gestion';
 
 const guaushop = '/images/logos/logo_guaushop.png';
 

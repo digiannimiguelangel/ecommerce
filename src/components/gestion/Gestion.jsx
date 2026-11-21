@@ -51,9 +51,7 @@ function Gestion() {
 
     return (
         <div>
-            {/*
-            <h2>Gestión de Productos</h2>
-            <hr />
+            <h2>Alta de Productos</h2>
             <FormularioProducto
                 datosForm={productoEditar || {}}
                 manejarCambio={() => { }}
@@ -62,8 +60,6 @@ function Gestion() {
                 imagenFile={null}
                 estadoInicialForm={estadoInicialForm}
             />
-            <hr />
-            */}
 
             {productoEditar && (
                 <button onClick={handleCancelarEdicion} className={styles.cancelButton}>Cancelar Edición</button>

@@ -121,7 +121,7 @@
 .removeButton {
     flex-shrink: 0;
     align-self: center;
-    padding: 8px 14px;
+    padding: 8px 10px;
     border: 1px solid #c62828;
     border-radius: 7px;
     background: transparent;
@@ -130,6 +130,16 @@
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    min-height: 36px;
+}
+
+.removeButton svg {
+    display: block;
+    flex-shrink: 0;
 }
 
 .removeButton:hover {

@@ -28,13 +28,8 @@ function Header({ image }) {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/alta-productos" className={styles.navLabel}>
-                            Alta de Productos
-                        </Link>
-                    </li>
-                    <li>
                         <Link to="/gestion-productos" className={styles.navLabel}>
-                            Gestión de Productos
+                            Gestión
                         </Link>
                     </li>
                     <li>

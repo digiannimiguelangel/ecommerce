@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FormularioProducto } from './FormularioProductos';
-import { collection, addDoc, getFirestore } from 'firebase/firestore';
+import { productoService } from '../../service/productoService';
 
 export function FormularioContainer() {
 
@@ -56,20 +56,22 @@ export function FormularioContainer() {
 
                 const productoCompleto = {
                     ...datosForm,
-                    urlImagen: datosImgbb.data.url
+                    image: datosImgbb.data.url
                 };
                 console.log("Enviando los siguientes datos a la API:", productoCompleto);
 
-                const db = getFirestore();
-
-                await addDoc(collection(db, 'productos'), productoCompleto);
+                await productoService.crearProducto(productoCompleto);
+                alert("Producto creado correctamente");
+                setDatosForm({ nombre: '', precio: '', stock: '' });
+                setImagenFile(null);
 
             } else {
                 throw new Error('La subida de la imagen a Imgbb falló.');
             }
 
         } catch (error) {
-            console.error("Error al subir la imagen a Imgbb:", error);
+            console.error("Error al crear el producto:", error);
+            alert("Error al crear el producto");
         }
     };
 

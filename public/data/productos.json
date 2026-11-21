@@ -6,7 +6,8 @@
         "precio": 29.99,
         "stock": 10,
         "image": "https://i.ibb.co/3YP4wg53/alimento-perros.png",
-        "destacado": true
+        "destacado": true,
+        "oferta": true
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "precio": 19.99,
         "stock": 5,
         "image": "https://i.ibb.co/DD17MgP1/bebedero-perros.png",
-        "destacado": true
+        "destacado": true,
+        "oferta": true
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "precio": 39.99,
         "stock": 0,
         "image": "https://i.ibb.co/1gPWhMH/cama-perros.png",
-        "destacado": true
+        "destacado": true,
+        "oferta": false
     },
     {
         "id": 4,
@@ -33,7 +36,8 @@
         "precio": 12.99,
         "stock": 15,
         "image": "https://i.ibb.co/kZTj4pn/collar-perros.png",
-        "destacado": false
+        "destacado": false,
+        "oferta": false
     },
     {
         "id": 5,
@@ -42,7 +46,8 @@
         "precio": 15.99,
         "stock": 12,
         "image": "https://i.ibb.co/WT5Nf9J/correa-perros.png",
-        "destacado": false
+        "destacado": false,
+        "oferta": false
     },
     {
         "id": 6,
@@ -51,7 +56,8 @@
         "precio": 8.99,
         "stock": 20,
         "image": "https://i.ibb.co/4gPZHsv0/hueso-mordedor.png",
-        "destacado": false
+        "destacado": false,
+        "oferta": false
     },
     {
         "id": 7,
@@ -60,7 +66,8 @@
         "precio": 7.99,
         "stock": 18,
         "image": "https://i.ibb.co/fzxwQnNv/juguete-cuerda.png",
-        "destacado": false
+        "destacado": false,
+        "oferta": false
     },
     {
         "id": 8,
@@ -69,7 +76,8 @@
         "precio": 9.99,
         "stock": 14,
         "image": "https://i.ibb.co/G3CVGBXV/pelota-perros.png",
-        "destacado": false
+        "destacado": false,
+        "oferta": false
     },
     {
         "id": 9,
@@ -78,7 +86,8 @@
         "precio": 22.99,
         "stock": 8,
         "image": "https://i.ibb.co/Sb5SgVs/pretal-perros.png",
-        "destacado": false
+        "destacado": false,
+        "oferta": false
     },
     {
         "id": 10,
@@ -87,7 +96,8 @@
         "precio": 6.99,
         "stock": 25,
         "image": "https://i.ibb.co/jksqJhvX/snacks-perros.png",
-        "destacado": false
+        "destacado": false,
+        "oferta": false
     },
     {
         "id": 11,
@@ -96,6 +106,7 @@
         "precio": 11.99,
         "stock": 10,
         "image": "https://i.ibb.co/9m1xFbhT/shampoo-perros.png",
-        "destacado": false
+        "destacado": false,
+        "oferta": false
     }
 ]
