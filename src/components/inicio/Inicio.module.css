@@ -257,7 +257,8 @@
     font-size: 0.72rem;
 }
 
-.categories {
+.categories,
+.offers {
     padding: 50px 0 42px;
 }
 
@@ -298,6 +299,20 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
+}
+
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.noProducts {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #6b6251;
+    padding: 40px 20px;
+    font-size: 1.1rem;
 }
 
 .categoryCard {

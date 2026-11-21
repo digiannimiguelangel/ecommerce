@@ -1,22 +1,10 @@
-import { Link } from 'react-router-dom';
 import styles from './Inicio.module.css';
-import { useGetCategorias } from '../producto/useGetCategorias';
+import { useGetProductosOferta } from './useGetProductosOferta';
+import TarjetaProducto from '../producto/TarjetaProducto';
 
 function Inicio() {
 
-    const { categorias, cargando, error } = useGetCategorias();
-
-    if (cargando) {
-        return (
-            <div className={styles.loadingMessage} role="status" aria-live="polite">
-                <p>Cargando categorías...</p>
-            </div>
-        );
-    }
-
-    if (error) {
-        return <p>Error al cargar las categorías.</p>;
-    }
+    const { productos: productosEnOferta, cargando: productosLoading, error: productosError } = useGetProductosOferta();
 
     return (
         <div className={styles.home}>
@@ -47,32 +35,36 @@ function Inicio() {
                 </div>
             </section>
 
-            <section className={styles.categories}>
+            <section className={styles.offers}>
                 <div className={styles.sectionHeading}>
                     <div>
-                        <span className={styles.sectionEyebrow}>UN MUNDO DE MIMOS</span>
-                        <h2>¿Qué necesita hoy?</h2>
+                        <span className={styles.sectionEyebrow}>ESPECIAL PARA TI</span>
+                        <h2>Productos en Oferta</h2>
                     </div>
-                    <Link to="/productos" className={styles.textLink}>
-                        Ver todos los productos <span aria-hidden="true">→</span>
-                    </Link>
                 </div>
-                <div className={styles.categoryGrid}>
-                    {categorias.map((categoria) => (
-                        <article
-                            className={`${styles.categoryCard} ${styles[categoria.color]}`}
-                            key={categoria.nombre}
-                        >
-                            <div className={styles.categoryImage}>
-                                <img src={categoria.imagen} alt="" />
-                            </div>
-                            <div className={styles.categoryCopy}>
-                                <h3>{categoria.nombre}</h3>
-                                <p>{categoria.detalle}</p>
-                            </div>
-                        </article>
-                    ))}
-                </div>
+                {productosLoading ? (
+                    <div className={styles.loadingMessage} role="status" aria-live="polite">
+                        <p>Cargando ofertas...</p>
+                    </div>
+                ) : (
+                    <div className={styles.productGrid}>
+                        {productosEnOferta.length > 0 ? (
+                            productosEnOferta.map((producto) => (
+                                <TarjetaProducto
+                                    key={producto.id}
+                                    id={producto.id}
+                                    nombre={producto.nombre}
+                                    precio={producto.precio}
+                                    stock={producto.stock}
+                                    image={producto.image}
+                                    categoria={producto.categoria}
+                                />
+                            ))
+                        ) : (
+                            <p className={styles.noProducts}>No hay productos en oferta en este momento.</p>
+                        )}
+                    </div>
+                )}
             </section>
 
         </div>
