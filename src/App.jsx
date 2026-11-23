@@ -9,6 +9,7 @@ import ContactoListContainer from './components/equipo/ContactoListContainer';
 import styles from './App.module.css';
 import Inicio from './components/inicio/Inicio';
 import Gestion from './components/gestion/Gestion';
+import Cuponera from './components/cuponera/Cuponera';
 
 const guaushop = '/images/logos/logo_guaushop.png';
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/carrito" element={<Cart />} />
         <Route path="*" element={<h1 className={styles.notFound}>Página no encontrada</h1>} />
         <Route path="/gestion-productos" element={<Gestion />} />
+        <Route path="/gestion-cupones" element={<Cuponera />} />
       </Route>
     </Routes>
   );

@@ -1,0 +1,205 @@
+.container {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.header h2 {
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+    color: #0f0f0f;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    margin: 0;
+    font-size: 1rem;
+    color: #999;
+    font-weight: 400;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Grid de cuponeras */
+.cuponerasGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px 0;
+}
+
+.emptyMessage {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Tarjeta de cupón */
+.cuponCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-left: 4px solid #9c27b0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cuponCard:hover {
+    border-left: 4px solid #7b1fa2;
+    box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+    background: #fafbfa;
+}
+
+.cuponCard:active {
+    transform: scale(0.995);
+}
+
+.cuponContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+}
+
+.cuponHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cuponCodigo {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f0f0f;
+    line-height: 1.3;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.cuponDescuento {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(156, 39, 176, 0.2);
+    flex-shrink: 0;
+}
+
+.cuponInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.cuponInfo p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.cuponInfo p strong {
+    color: #0f0f0f;
+    font-weight: 600;
+}
+
+.cuponActions {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    justify-content: flex-end;
+    white-space: nowrap;
+}
+
+.editButton,
+.deleteButton {
+    flex: 0 0 auto;
+    padding: 4px 8px;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    border: 1px solid transparent;
+    background: transparent;
+}
+
+.editButton {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(33, 150, 243, 0.2);
+}
+
+.editButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
+    background: linear-gradient(135deg, #2196F3 0%, #1565C0 100%);
+}
+
+.editButton:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(33, 150, 243, 0.2);
+}
+
+.deleteButton {
+    background: transparent;
+    color: #f44336;
+    box-shadow: none;
+    padding: 4px 8px;
+}
+
+.deleteButton:hover {
+    background: rgba(244, 67, 54, 0.1);
+    transform: scale(1.2);
+    box-shadow: none;
+}
+
+.deleteButton:active {
+    transform: scale(0.95);
+}
+

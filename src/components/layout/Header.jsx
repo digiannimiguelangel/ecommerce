@@ -33,6 +33,11 @@ function Header({ image }) {
                         </Link>
                     </li>
                     <li>
+                        <Link to="/gestion-cupones" className={styles.navLabel}>
+                            Cupones
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/nosotros" className={styles.navLabel}>
                             Nosotros
                         </Link>

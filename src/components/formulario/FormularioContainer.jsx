@@ -57,35 +57,21 @@ export function FormularioContainer({ onProductoCreado }) {
             });
 
             const datosImgbb = await respuestaImgbb.json();
-            console.log("📋 Respuesta completa de ImgBB:", JSON.stringify(datosImgbb, null, 2));
             
             if (datosImgbb.success) {
-                console.log("✅ Imagen subida con éxito. URL:", datosImgbb.data.url);
-                console.log("🔑 Explorando estructura de respuesta:");
-                console.log("   - datosImgbb.data.delete_hash:", datosImgbb.data.delete_hash);
-                console.log("   - datosImgbb.data.id:", datosImgbb.data.id);
-                console.log("   - datosImgbb.data.expiration:", datosImgbb.data.expiration);
-                console.log("   - Todas las claves en data:", Object.keys(datosImgbb.data));
-                
-                // El delete_hash podría estar bajo un nombre diferente o no incluirse
-                const deleteHash = datosImgbb.data.delete_hash || datosImgbb.delete_hash;
-                
-                if (!deleteHash) {
-                    console.warn('⚠️ PROBLEMA: No se recibió delete_hash de ImgBB');
-                    console.warn('Respuesta completa:', datosImgbb);
-                }
+                console.log("✅ Imagen subida con éxito");
+                console.log("   URL:", datosImgbb.data.url);
 
                 const productoCompleto = {
                     nombre: datosForm.nombre.trim(),
                     precio: parseFloat(datosForm.precio),
                     stock: parseInt(datosForm.stock, 10),
-                    image: datosImgbb.data.url,
-                    imageDeleteHash: deleteHash || null
+                    image: datosImgbb.data.url
                 };
-                console.log("📦 Enviando a Firestore:", JSON.stringify(productoCompleto, null, 2));
+                console.log("📦 Guardando producto en Firestore");
 
                 await productoService.crearProducto(productoCompleto);
-                console.log("Producto creado exitosamente");
+                console.log("✅ Producto creado exitosamente");
                 
                 alert("Producto creado correctamente");
                 

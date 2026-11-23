@@ -1,6 +1,6 @@
 import styles from './Gestion.module.css';
 
-function ProductoGestion({ producto, handleEditar, handleDelete }) {
+function GestionProducto({ producto, handleEditar, handleDelete }) {
 
     return (
         <div className={styles.productoCard}>
@@ -35,4 +35,4 @@ function ProductoGestion({ producto, handleEditar, handleDelete }) {
         </div>
     );
 }
-export default ProductoGestion;
+export default GestionProducto;
