@@ -6,7 +6,7 @@
     margin-bottom: 8px;
     background: #f5f5f5;
     border-radius: 6px;
-    border-left: 4px solid #218739;
+    border-left: 4px solid #9c27b0;
 }
 
 .buttonGroup {
@@ -33,7 +33,7 @@
     padding: 12px 16px;
     background: #ffffff;
     border: 1px solid #e8e8e8;
-    border-left: 4px solid #218739;
+    border-left: 4px solid #9c27b0;
     border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -41,8 +41,8 @@
 }
 
 .productoCard:hover {
-    border-left: 4px solid #176b2b;
-    box-shadow: 0 4px 12px rgba(33, 135, 57, 0.15);
+    border-left: 4px solid #7b1fa2;
+    box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
     background: #fafbfa;
 }
 

@@ -98,7 +98,7 @@ function FormularioCuponera({ onCuponerCreada, onCancel }) {
                         className={styles.submitButton}
                         disabled={loading}
                     >
-                        {loading ? 'Creando...' : '✓ Crear Cupón'}
+                        {loading ? 'Creando...' : '✓ Guardar Cupón'}
                     </button>
                     <button
                         type="button"

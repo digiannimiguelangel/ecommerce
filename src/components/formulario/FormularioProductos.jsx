@@ -69,14 +69,14 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
                 </div>
             </div>
             <div className={styles.botones}>
-                <button type="submit" className={styles.botonGuardar}>Guardar Producto</button>
+                <button type="submit" className={styles.botonGuardar}>✓ Guardar Producto</button>
                 {onCancel && (
                     <button 
                         type="button" 
                         className={styles.botonCancelar}
                         onClick={onCancel}
                     >
-                        Cancelar
+                        ✕ Cancelar
                     </button>
                 )}
             </div>
