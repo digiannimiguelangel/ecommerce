@@ -1,7 +1,43 @@
-import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, deleteDoc, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 
 export const cuponeraService = {
+
+    crearCupon: async (cuponData) => {
+        try {
+            console.log('📝 Creando nuevo cupón:', cuponData);
+
+            // Validar campos obligatorios
+            if (!cuponData.codigo || !cuponData.codigo.trim()) {
+                throw new Error('El código del cupón es requerido');
+            }
+
+            if (!cuponData.descuento || isNaN(cuponData.descuento) || cuponData.descuento < 0 || cuponData.descuento > 100) {
+                throw new Error('El descuento debe ser un número entre 0 y 100');
+            }
+
+            // Crear el cupón en Firestore
+            const cuponesDB = collection(db, 'cupones');
+            const docRef = await addDoc(cuponesDB, {
+                codigo: cuponData.codigo.trim(),
+                descuento: parseInt(cuponData.descuento),
+                fechaCreacion: new Date()
+            });
+
+            console.log('✅ Cupón creado con id:', docRef.id);
+
+            return {
+                id: docRef.id,
+                codigo: cuponData.codigo.trim(),
+                descuento: parseInt(cuponData.descuento),
+                fechaCreacion: new Date()
+            };
+
+        } catch (error) {
+            console.error('❌ Error al crear cupón:', error);
+            throw error;
+        }
+    },
 
     obtenerCupones: async () => {
         const cuponesDB = collection(db, 'cupones');
