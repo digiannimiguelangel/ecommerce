@@ -1,6 +1,6 @@
 import styles from './FormularioProductos.module.css';
 
-export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen, imagenFile }) {
+export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen, imagenFile, onCancel }) {
 
     return (
         <form className={styles.form} onSubmit={manejarEnvio}>
@@ -68,7 +68,18 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
                     </span>
                 </div>
             </div>
-            <button type="submit">Guardar Producto</button>
+            <div className={styles.botones}>
+                <button type="submit" className={styles.botonGuardar}>Guardar Producto</button>
+                {onCancel && (
+                    <button 
+                        type="button" 
+                        className={styles.botonCancelar}
+                        onClick={onCancel}
+                    >
+                        Cancelar
+                    </button>
+                )}
+            </div>
         </form>
     );
 

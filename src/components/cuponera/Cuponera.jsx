@@ -16,10 +16,8 @@ function Cuponera() {
 
     const fetchCupones = async () => {
         try {
-            console.log("🔍 Iniciando carga de cupones...");
             setCargando(true);
             const cupones = await cuponeraService.obtenerCupones();
-            console.log("✅ Cupones cargados en Cuponera.jsx:", cupones);
             setCupones(cupones);
         } catch (error) {
             console.error('❌ Error al obtener cupones:', error);
@@ -34,19 +32,15 @@ function Cuponera() {
         if (window.confirm('¿Estás seguro de que deseas eliminar esta cuponera?')) {
             try {
                 await cuponeraService.eliminarCupon(id);
-                console.log('✅ Cuponera eliminada. Actualizando lista...');
-                // Actualizar la lista removiendo el cupón
                 setCupones(cupones.filter(cupon => cupon.id !== id));
                 alert('Cuponera eliminada exitosamente');
             } catch (error) {
                 console.error('Error al eliminar:', error);
-                alert('Error al eliminar la cuponera: ' + error.message);
             }
         }
     };
 
     const handleCuponerCreada = (nuevosCupones) => {
-        // Actualizar la lista agregando el nuevo cupón
         setCupones([...cupones, nuevosCupones]);
         setMostrarFormulario(false);
     };

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FormularioProducto } from './FormularioProductos';
 import { productoService } from '../../service/productoService';
 
-export function FormularioContainer({ onProductoCreado }) {
+export function FormularioContainer({ onProductoCreado, onCancel }) {
 
     const [datosForm, setDatosForm] = useState({
         nombre: '',
@@ -108,6 +108,7 @@ export function FormularioContainer({ onProductoCreado }) {
             manejarEnvio={manejarEnvio}
             manejarCambioImagen={manejarCambioImagen}
             imagenFile={imagenFile}
+            onCancel={onCancel}
         />
     );
 }
