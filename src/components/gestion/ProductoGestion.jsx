@@ -22,14 +22,16 @@ function GestionProducto({ producto, handleEditar, handleDelete }) {
                 <button
                     onClick={() => handleEditar && handleEditar(producto)}
                     className={styles.editButton}
+                    title="Editar producto"
                 >
-                    ✎ Editar
+                    ✎
                 </button>
                 <button
                     onClick={() => handleDelete && handleDelete(producto.id)}
                     className={styles.deleteButton}
+                    title="Eliminar producto"
                 >
-                    🗑 Eliminar
+                    🗑
                 </button>
             </div>
         </div>
