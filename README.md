@@ -91,6 +91,6 @@ La configuración de Firebase se encuentra en `src/firebase/config.js`. Asegúra
 
 ## Notas importantes
 
-- Los productos en oferta se muestran en la página de inicio si tienen el campo `oferta: true` en Firebase
+- Los productos marcados como oferta en el formulario se muestran en la página de inicio
 - El carrito se sincroniza usando Context API
 - Los logs de debugging se muestran en la consola del navegador (F12)

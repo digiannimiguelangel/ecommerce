@@ -41,6 +41,7 @@ export const productoService = {
                 descripcion: productoData.descripcion,
                 precio: parseFloat(productoData.precio),
                 stock: parseInt(productoData.stock, 10),
+                oferta: productoData.oferta,
                 image: productoData.image
             };
 

@@ -58,6 +58,18 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
                 />
             </div>
             <div>
+                <label htmlFor="oferta" className={styles.ofertaLabel}>
+                    <input
+                        id="oferta"
+                        type="checkbox"
+                        name="oferta"
+                        checked={datosForm.oferta}
+                        onChange={manejarCambio}
+                    />
+                    Producto en oferta
+                </label>
+            </div>
+            <div>
                 <label id="imagenLabel">Imagen:</label>
                 <div className={styles.archivoInput}>
                     <label htmlFor="imagen" className={styles.archivoBoton}>

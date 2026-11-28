@@ -8,17 +8,17 @@ export function FormularioContainer({ productoEditar, onProductoCreado, onCancel
         nombre: productoEditar?.nombre ?? '',
         descripcion: productoEditar?.descripcion ?? '',
         precio: productoEditar?.precio ?? '',
-        stock: productoEditar?.stock ?? ''
+        stock: productoEditar?.stock ?? '',
+        oferta: productoEditar?.oferta === true || productoEditar?.oferta === 'true'
     });
 
     const [imagenFile, setImagenFile] = useState(null);
 
     const manejarCambio = (e) => {
-        const { name, value } = e.target;
-        console.log("Cambio en el formulario:", name, value);
+        const { name, value, type, checked } = e.target;
         setDatosForm({
             ...datosForm,
-            [name]: value
+            [name]: type === 'checkbox' ? checked : value
         });
     }
 
@@ -68,6 +68,7 @@ export function FormularioContainer({ productoEditar, onProductoCreado, onCancel
                 descripcion: datosForm.descripcion.trim(),
                 precio: parseFloat(datosForm.precio),
                 stock: parseInt(datosForm.stock, 10),
+                oferta: datosForm.oferta,
                 image
             };
             const productoGuardado = productoEditar
@@ -75,7 +76,7 @@ export function FormularioContainer({ productoEditar, onProductoCreado, onCancel
                 : await productoService.crearProducto(productoCompleto);
 
             alert(productoEditar ? "Producto actualizado correctamente" : "Producto creado correctamente");
-            setDatosForm({ nombre: '', descripcion: '', precio: '', stock: '' });
+            setDatosForm({ nombre: '', descripcion: '', precio: '', stock: '', oferta: false });
             setImagenFile(null);
             const inputArchivo = document.getElementById('imagen');
             if (inputArchivo) {
