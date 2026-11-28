@@ -36,12 +36,19 @@ function Gestion() {
 
     const handleEditar = (producto) => {
         setProductoEditar(producto);
+        setMostrarFormulario(true);
     };
 
-    const actualizarProductos = async () => {
-        const productos = await productoService.obtenerProductos();
-        setProductos(productos);
+    const cerrarFormulario = () => {
         setMostrarFormulario(false);
+        setProductoEditar(null);
+    };
+
+    const actualizarProductos = (producto) => {
+        setProductos(prev => productoEditar
+            ? prev.map(prod => prod.id === producto.id ? producto : prod)
+            : [...prev, producto]);
+        cerrarFormulario();
     };
 
     return (
@@ -53,8 +60,10 @@ function Gestion() {
 
             {mostrarFormulario ? (
                 <FormularioContainer 
+                    key={productoEditar?.id ?? 'nuevo'}
+                    productoEditar={productoEditar}
                     onProductoCreado={actualizarProductos}
-                    onCancel={() => setMostrarFormulario(false)}
+                    onCancel={cerrarFormulario}
                 />
             ) : (
                 <button 

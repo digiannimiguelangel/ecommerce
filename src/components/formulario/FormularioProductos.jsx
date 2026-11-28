@@ -1,10 +1,10 @@
 import styles from './FormularioProductos.module.css';
 
-export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen, imagenFile, onCancel }) {
+export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen, imagenFile, productoEditar, onCancel }) {
 
     return (
         <form className={styles.form} onSubmit={manejarEnvio}>
-            <h3>Agregar Nuevo Producto</h3>
+            <h3>{productoEditar ? 'Editar Producto' : 'Agregar Nuevo Producto'}</h3>
             <div>
                 <label>Nombre del Producto:</label>
                 <input
@@ -26,7 +26,7 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
                     type="number"
                     placeholder="Ej: 95"
                     name="precio"
-                    value={datosForm.precio || ''}
+                    value={datosForm.precio ?? ''}
                     onChange={manejarCambio}
                     required
                     min="0.01"
@@ -40,7 +40,7 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
                     type="number"
                     placeholder="Ej: 5"
                     name="stock"
-                    value={datosForm.stock || ''}
+                    value={datosForm.stock ?? ''}
                     onChange={manejarCambio}
                     required
                     min="0"
@@ -60,11 +60,11 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
                         type="file"
                         accept="image/*"
                         name="imagen"
-                        required
+                        required={!productoEditar?.image}
                         onChange={manejarCambioImagen}
                     />
                     <span className={styles.archivoNombre}>
-                        {imagenFile ? imagenFile.name : 'Ningún archivo seleccionado'}
+                        {imagenFile ? imagenFile.name : productoEditar?.image ? 'Se conservará la imagen actual' : 'Ningún archivo seleccionado'}
                     </span>
                 </div>
             </div>
