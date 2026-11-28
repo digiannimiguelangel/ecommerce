@@ -24,7 +24,7 @@ function Gestion() {
             try {
                 await productoService.eliminarProducto(id);
                 alert('Producto eliminado correctamente');
-                
+
                 // Actualizar la lista localmente
                 setProductos(productos.filter(prod => prod.id !== id));
             } catch (error) {
@@ -59,14 +59,14 @@ function Gestion() {
             </div>
 
             {mostrarFormulario ? (
-                <FormularioContainer 
+                <FormularioContainer
                     key={productoEditar?.id ?? 'nuevo'}
                     productoEditar={productoEditar}
                     onProductoCreado={actualizarProductos}
                     onCancel={cerrarFormulario}
                 />
             ) : (
-                <button 
+                <button
                     onClick={() => setMostrarFormulario(true)}
                     className={styles.submitButton}
                     style={{ marginBottom: '20px', maxWidth: '250px' }}
@@ -74,8 +74,11 @@ function Gestion() {
                     + Crear Nuevo Producto
                 </button>
             )}
-            
-            <GestionList productos={productos} handleDelete={handleDelete} handleEditar={handleEditar} />
+
+            <GestionList
+                productos={productos}
+                handleDelete={handleDelete}
+                handleEditar={handleEditar} />
         </div>
     );
 }
