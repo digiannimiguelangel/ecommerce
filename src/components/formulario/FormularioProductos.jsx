@@ -39,7 +39,7 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
                     value={datosForm.precio ?? ''}
                     onChange={manejarCambio}
                     required
-                    min="0.01"
+                    min="0"
                     step="any"
                 />
             </div>
