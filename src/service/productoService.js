@@ -38,6 +38,7 @@ export const productoService = {
             const productosDB = collection(db, 'productos');
             const datosFormateados = {
                 nombre: productoData.nombre,
+                descripcion: productoData.descripcion,
                 precio: parseFloat(productoData.precio),
                 stock: parseInt(productoData.stock, 10),
                 image: productoData.image

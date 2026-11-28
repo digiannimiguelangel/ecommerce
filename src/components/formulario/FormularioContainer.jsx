@@ -6,6 +6,7 @@ export function FormularioContainer({ productoEditar, onProductoCreado, onCancel
 
     const [datosForm, setDatosForm] = useState({
         nombre: productoEditar?.nombre ?? '',
+        descripcion: productoEditar?.descripcion ?? '',
         precio: productoEditar?.precio ?? '',
         stock: productoEditar?.stock ?? ''
     });
@@ -64,6 +65,7 @@ export function FormularioContainer({ productoEditar, onProductoCreado, onCancel
 
             const productoCompleto = {
                 nombre: datosForm.nombre.trim(),
+                descripcion: datosForm.descripcion.trim(),
                 precio: parseFloat(datosForm.precio),
                 stock: parseInt(datosForm.stock, 10),
                 image
@@ -73,7 +75,7 @@ export function FormularioContainer({ productoEditar, onProductoCreado, onCancel
                 : await productoService.crearProducto(productoCompleto);
 
             alert(productoEditar ? "Producto actualizado correctamente" : "Producto creado correctamente");
-            setDatosForm({ nombre: '', precio: '', stock: '' });
+            setDatosForm({ nombre: '', descripcion: '', precio: '', stock: '' });
             setImagenFile(null);
             const inputArchivo = document.getElementById('imagen');
             if (inputArchivo) {

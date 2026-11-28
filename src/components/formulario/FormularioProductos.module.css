@@ -91,7 +91,8 @@
     font-size: 0.85rem;
 }
 
-.form input {
+.form input,
+.form textarea {
     width: 100%;
     min-height: 44px;
     box-sizing: border-box;
@@ -104,11 +105,13 @@
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form input::placeholder {
+.form input::placeholder,
+.form textarea::placeholder {
     color: #858585;
 }
 
-.form input:focus-visible {
+.form input:focus-visible,
+.form textarea:focus-visible {
     border-color: #8b7028;
     outline: none;
     box-shadow: 0 0 0 3px rgba(184, 154, 63, 0.2);

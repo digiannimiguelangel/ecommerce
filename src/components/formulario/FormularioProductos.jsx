@@ -20,6 +20,16 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
                 />
             </div>
             <div>
+                <label htmlFor="descripcion">Descripción del producto (opcional):</label>
+                <textarea
+                    id="descripcion"
+                    name="descripcion"
+                    rows="4"
+                    value={datosForm.descripcion}
+                    onChange={manejarCambio}
+                />
+            </div>
+            <div>
                 <label>Precio: $</label>
                 <input
                     id="precio"

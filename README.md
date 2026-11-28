@@ -75,6 +75,7 @@ src/
 - ❤️ Sistema de favoritos
 - 📱 Diseño responsivo
 - 🔥 Integración con Firebase/Firestore
+- Gestión de productos con descripción opcional, visible en el detalle del producto
 
 ## Configuración de Firebase
 
